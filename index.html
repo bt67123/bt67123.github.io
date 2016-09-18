@@ -291,56 +291,25 @@
 
       
         
-          
-            <p>最近不仅换厂了，连开发方向都换了，从事PHP开发去了。</p>
+          <p>最近不仅换厂了，连开发方向都换了，从事PHP开发去了。</p>
 <p>个中原因一言难尽，希望在不久将来能成为全栈吧！</p>
 <p>接下来的博客内容可能会以web开发为主了，如果有时间研究iOS也是极好的。</p>
 <p>这篇东西主要想记录一下我在配置PHP断点调试遇到的一些坑（仅仅记录我遇到的）。</p>
 <h2 id="安装XDebug"><a href="#安装XDebug" class="headerlink" title="安装XDebug"></a>安装XDebug</h2><p>获取相应版本XDebug步骤:</p>
 <ol>
 <li>复制phpinfo()打印出来的页面(<code>command+a</code>, <code>command+c</code>);</li>
-<li>浏览器打开网址<a href="https://xdebug.org/wizard.php" target="_blank" rel="external">https://xdebug.org/wizard.php</a></li>
+<li>浏览器打开网址<a href="https://xdebug.org/wizard.php">https://xdebug.org/wizard.php</a></li>
 <li>把刚才复制的phpinfo内容粘贴到页面的输入框中(<code>command+v</code>)，然后点击下方<code>Analyse my phpinfo() output</code>按钮;</li>
 </ol>
 <p>接下来会得到以下页面（不同机子，不同版本可能得到的内容不一样，仅记录我获得的）</p>
 <p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-3E683CD6-B144-4D83-8A41-5A41F0B12E68.png" alt=""></p>
 <p>页面上显示了对本机配置的描述<code>SUMMARY</code>，还有针对此配置的安装<code>XDebug</code>的详细步骤<code>INSTRUCTIONS</code>（巨详细，但是有几个坑）。</p>
 <p>按照给出的步骤一步一步往下走，一个一个坑的踩。</p>
-<h3 id="坑1"><a href="#坑1" class="headerlink" title="坑1:"></a>坑1:</h3><p>第二步，解压缩的时候，按照上面的指令去解压，不要在图形界面上解压。</p>
-<h3 id="坑2"><a href="#坑2" class="headerlink" title="坑2:"></a>坑2:</h3><p>第四部，运行命令<code>phpize</code>的时候报错如下:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/usr/local/Cellar/php70/7.0.10_1/bin/phpize: line 61: /usr/local/Library/Homebrew/shims/super/sed: No such file or directory</div><div class="line">/usr/local/Cellar/php70/7.0.10_1/bin/phpize: line 62: /usr/local/Library/Homebrew/shims/super/sed: No such file or directory</div><div class="line">/usr/local/Cellar/php70/7.0.10_1/bin/phpize: line 63: /usr/local/Library/Homebrew/shims/super/sed: No such file or directory</div><div class="line">Configuring for:</div><div class="line">PHP Api Version:</div><div class="line">Zend Module Api No:</div><div class="line">Zend Extension Api No:</div><div class="line">/usr/local/Cellar/php70/7.0.10_1/bin/phpize: line 155: /usr/local/Library/Homebrew/shims/super/sed: No such file or directory</div><div class="line">Cannot find autoconf. Please check your autoconf installation and the</div><div class="line">$PHP_AUTOCONF environment variable. Then, rerun this script.</div></pre></td></tr></table></figure>
-<p>报错主要说明了两个问题，一个是在指定路径上<code>sed</code>命令没找到，另一个是<code>Cannot find autoconf</code>。</p>
-<p>填坑:</p>
-<ol>
-<li>发现<code>sed</code>在其他路径上，把找到的<code>sed</code>文件复制到指定路径上，也就是上面的<code>/usr/local/Library/Homebrew/shims/super/sed</code>。</li>
-<li>缺少<code>autoconf</code>，缺少那就安装，使用<code>Homebrew</code>安装，在命令行键入<code>brew install autoconf</code></li>
-</ol>
-<h3 id="坑3"><a href="#坑3" class="headerlink" title="坑3:"></a>坑3:</h3><p>第七步与第八步路径不一样，或者说第七步路径缺少了一部分！！</p>
-<p>填坑：</p>
-<p>把第七步命令上的路径按照第八步的路径补全</p>
-<p><code>cp modules/xdebug.so /usr/local/Cellar/php70/7.0.10_1/lib/php/extensions/no-debug-non-zts-20151012/xdebug.so</code></p>
-<h2 id="配置XDebug"><a href="#配置XDebug" class="headerlink" title="配置XDebug"></a>配置XDebug</h2><p>在<code>php.ini</code>文件末尾添加如下代码:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">zend_extension = /usr/local/Cellar/php70/7.0.10_1/lib/php/extensions/no-debug-non-zts-20151012/xdebug.so</div><div class="line">xdebug.idekey=PhpStorm</div><div class="line">xdebug.remote_enable = On</div><div class="line">xdebug.remote_host=localhost</div><div class="line">xdebug.remote_port=9001</div><div class="line">xdebug.remote_mode=req</div><div class="line">xdebug.remote_handler=dbgp</div></pre></td></tr></table></figure>
-<p>由于端口<code>9000</code>被占用了，我改用了<code>9001</code>。</p>
-<p>什么？找不到<code>php.ini</code>文件?</p>
-<p>好吧，再次打开<code>phpinfo</code></p>
-<p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-DingTalk20160918180407.png" alt=""></p>
-<p>配置完成，重启webserver，php-fpm。</p>
-<h2 id="检验安装配置是否成功"><a href="#检验安装配置是否成功" class="headerlink" title="检验安装配置是否成功"></a>检验安装配置是否成功</h2><p>重新打开<code>phpinfo</code>页面，看到下图这个，说明安装成功</p>
-<p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-QQ20160918-0.png" alt=""></p>
-<p>或者命令行键入<code>php -m</code>，拉到最后看是否有<code>XDebug</code></p>
-<p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-QQ20160918-1.png" alt=""></p>
-<h2 id="PHPStorm中配置XDebug"><a href="#PHPStorm中配置XDebug" class="headerlink" title="PHPStorm中配置XDebug"></a>PHPStorm中配置XDebug</h2><h3 id="配置端口"><a href="#配置端口" class="headerlink" title="配置端口"></a>配置端口</h3><p>里面的<code>debug port</code>必须要与刚才<code>php.ini</code>配置的<code>remote_port</code>保持一致。</p>
-<p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.21.59.png" alt=""></p>
-<h3 id="配置servers"><a href="#配置servers" class="headerlink" title="配置servers"></a>配置servers</h3><p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.27.07.png" alt=""></p>
-<h3 id="配置debug"><a href="#配置debug" class="headerlink" title="配置debug"></a>配置debug</h3><p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.30.31.png" alt=""></p>
-<p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.34.36.png" alt=""></p>
-<p>配置好后，点击<br><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.32.55.png" alt=""><br>这个按钮，开始debug，别忘了打断点哦！</p>
-<p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.35.59.png" alt=""></p>
-<p>可以断点了，大功告成！</p>
-<p>以上。</p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/17/php_breakpoint_debug/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
