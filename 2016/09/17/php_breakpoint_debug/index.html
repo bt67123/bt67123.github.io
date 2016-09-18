@@ -90,12 +90,48 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="小罗的技术博客">
-<meta property="og:url" content="http://bt67123.github.io/index.html">
+<meta name="description" content="最近不仅换厂了，连开发方向都换了，从事PHP开发去了。
+个中原因一言难尽，希望在不久将来能成为全栈吧！
+接下来的博客内容可能会以web开发为主了，如果有时间研究iOS也是极好的。
+这篇东西主要想记录一下我在配置PHP断点调试遇到的一些坑（仅仅记录我遇到的）。
+XDebug安装获取相应版本XDebug步骤:
+
+复制phpinfo()打印出来的页面(command+a, command+c);
+浏览器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP开发：Mac下PHPStorm+XDebug断点调试">
+<meta property="og:url" content="http://bt67123.github.io/2016/09/17/php_breakpoint_debug/index.html">
 <meta property="og:site_name" content="小罗的技术博客">
+<meta property="og:description" content="最近不仅换厂了，连开发方向都换了，从事PHP开发去了。
+个中原因一言难尽，希望在不久将来能成为全栈吧！
+接下来的博客内容可能会以web开发为主了，如果有时间研究iOS也是极好的。
+这篇东西主要想记录一下我在配置PHP断点调试遇到的一些坑（仅仅记录我遇到的）。
+XDebug安装获取相应版本XDebug步骤:
+
+复制phpinfo()打印出来的页面(command+a, command+c);
+浏览器">
+<meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-3E683CD6-B144-4D83-8A41-5A41F0B12E68.png">
+<meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-DingTalk20160918180407.png">
+<meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-QQ20160918-0.png">
+<meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-QQ20160918-1.png">
+<meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.21.59.png">
+<meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.27.07.png">
+<meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.30.31.png">
+<meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.34.36.png">
+<meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.32.55.png">
+<meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.35.59.png">
+<meta property="og:updated_time" content="2016-09-18T10:36:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小罗的技术博客">
+<meta name="twitter:title" content="PHP开发：Mac下PHPStorm+XDebug断点调试">
+<meta name="twitter:description" content="最近不仅换厂了，连开发方向都换了，从事PHP开发去了。
+个中原因一言难尽，希望在不久将来能成为全栈吧！
+接下来的博客内容可能会以web开发为主了，如果有时间研究iOS也是极好的。
+这篇东西主要想记录一下我在配置PHP断点调试遇到的一些坑（仅仅记录我遇到的）。
+XDebug安装获取相应版本XDebug步骤:
+
+复制phpinfo()打印出来的页面(command+a, command+c);
+浏览器">
+<meta name="twitter:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-3E683CD6-B144-4D83-8A41-5A41F0B12E68.png">
 
 
 
@@ -116,9 +152,9 @@
 
 
 
-  <link rel="canonical" href="http://bt67123.github.io/"/>
+  <link rel="canonical" href="http://bt67123.github.io/2016/09/17/php_breakpoint_debug/"/>
 
-  <title> 小罗的技术博客 </title>
+  <title> PHP开发：Mac下PHPStorm+XDebug断点调试 | 小罗的技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -139,9 +175,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -218,9 +252,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -240,10 +274,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/09/17/php_breakpoint_debug/" itemprop="url">
-                  PHP开发：Mac下PHPStorm+XDebug断点调试
-                </a>
+                PHP开发：Mac下PHPStorm+XDebug断点调试
               
             
           </h1>
@@ -290,9 +321,7 @@
       
 
       
-        
-          
-            <p>最近不仅换厂了，连开发方向都换了，从事PHP开发去了。</p>
+        <p>最近不仅换厂了，连开发方向都换了，从事PHP开发去了。</p>
 <p>个中原因一言难尽，希望在不久将来能成为全栈吧！</p>
 <p>接下来的博客内容可能会以web开发为主了，如果有时间研究iOS也是极好的。</p>
 <p>这篇东西主要想记录一下我在配置PHP断点调试遇到的一些坑（仅仅记录我遇到的）。</p>
@@ -340,16 +369,20 @@
 <p>可以断点了，大功告成！</p>
 <p>以上。</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
@@ -357,336 +390,51 @@
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/07/25/Message_Forwarding/" rel="next" title="Objective-C - 利用动态消息转发实现代理转发">
+                <i class="fa fa-chevron-left"></i> Objective-C - 利用动态消息转发实现代理转发
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2016/07/25/Message_Forwarding/" itemprop="url">
-                  Objective-C - 利用动态消息转发实现代理转发
-                </a>
-              
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-25T11:17:30+08:00" content="2016-07-25">
-              2016-07-25
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/25/Message_Forwarding/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/25/Message_Forwarding/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h1 id="Runtime"><a href="#Runtime" class="headerlink" title="Runtime ?"></a>Runtime ?</h1><p>Runtime 是 Objective-C 区别于 C 语言这样的静态语言的一个非常重要的特性。对于 C 语言，函数的调用会在编译期就已经决定好，在编译完成后直接顺序执行。但是 OC 是一门动态语言，函数调用变成了消息发送，在编译期不能知道要调用哪个函数。所以 Runtime 无非就是去解决如何在运行时期找到调用方法这样的问题。</p>
-<h1 id="动态消息转发"><a href="#动态消息转发" class="headerlink" title="动态消息转发"></a>动态消息转发</h1><p>由于OC有Runtime这一重要特性，使得动态消息转发(Message Forwarding)成为了可能。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/25/Message_Forwarding/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
+
+    <div class="post-spread">
       
+        <div class="ds-share flat" data-thread-key="2016/09/17/php_breakpoint_debug/"
+     data-title="PHP开发：Mac下PHPStorm+XDebug断点调试"
+     data-content=""
+     data-url="http://bt67123.github.io/2016/09/17/php_breakpoint_debug/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
 
-  
-  
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
 
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/15/AVFoundation_watermark/" itemprop="url">
-                  iOS开发：如何在视频中添加水印
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-15T12:25:25+08:00" content="2016-07-15">
-              2016-07-15
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/15/AVFoundation_watermark/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/15/AVFoundation_watermark/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>先上个图</p>
-<p><img src="http://oaayo42x2.bkt.clouddn.com/watermark_gif.gif" alt="image"></p>
-<h3 id="一-根据AVAsset得到AVMutableComposition"><a href="#一-根据AVAsset得到AVMutableComposition" class="headerlink" title="一. 根据AVAsset得到AVMutableComposition"></a>一. 根据AVAsset得到AVMutableComposition</h3><p>从asset中取得视频的音视频轨道：<br><figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="built_in">AVAssetTrack</span> *assetVideoTrack = <span class="literal">nil</span>;</div><div class="line"><span class="built_in">AVAssetTrack</span> *assetAudioTrack = <span class="literal">nil</span>;</div><div class="line"><span class="comment">/**</div><div class="line"> *  判断asset是否有音视频的轨道，并获取</div><div class="line"> */</span></div><div class="line"><span class="keyword">if</span> ([[_asset tracksWithMediaType:<span class="built_in">AVMediaTypeVideo</span>] count] != <span class="number">0</span>) &#123;</div><div class="line">    assetVideoTrack = [[_asset tracksWithMediaType:<span class="built_in">AVMediaTypeVideo</span>] objectAtIndex:<span class="number">0</span>];</div><div class="line">&#125;</div><div class="line"><span class="keyword">if</span> ([[_asset tracksWithMediaType:<span class="built_in">AVMediaTypeAudio</span>] count] != <span class="number">0</span>) &#123;</div><div class="line">    assetAudioTrack = [[_asset tracksWithMediaType:<span class="built_in">AVMediaTypeAudio</span>] objectAtIndex:<span class="number">0</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>使用AVAsset中的<code>tracksWithMediaType:</code> 方法可以获取视频中的音频或视频的轨道。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/15/AVFoundation_watermark/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/11/block_retain_cycle/" itemprop="url">
-                  OC中block循环引用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-11T12:25:25+08:00" content="2016-07-11">
-              2016-07-11
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/11/block_retain_cycle/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/11/block_retain_cycle/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="什么是block循环引用"><a href="#什么是block循环引用" class="headerlink" title="什么是block循环引用"></a>什么是block循环引用</h2><blockquote>
-<p>如果在Block中使用附有__strong修饰符的对象类型自动变量，那么当Block从栈复制到堆时，该对象为Block所有。这样容易引起循环引用。</p>
-</blockquote>
-<p>举个简单的例子<br><figure class="highlight objc"><table><tr><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="keyword">void</span> (^block1) (<span class="keyword">void</span>);</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> () </span>&#123;</div><div class="line">    block1 _blk;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line">@implement ViewController </div><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    _blk = ^ &#123;</div><div class="line">    	<span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, <span class="keyword">self</span>);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)dealloc &#123;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
-<p>上面的例子中<code>ViewController</code>对象持有<code>_blk</code>，<code>_blk</code>持有<code>ViewController</code>对象，这样就形成了循环引用。<br>这样会导致<code>dealloc</code>无法被调用，也就是说<code>ViewContrller</code>对象无法被释放。 </p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/11/block_retain_cycle/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
@@ -694,6 +442,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/17/php_breakpoint_debug/"
+           data-title="PHP开发：Mac下PHPStorm+XDebug断点调试" data-url="http://bt67123.github.io/2016/09/17/php_breakpoint_debug/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -713,8 +469,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -750,6 +515,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#XDebug安装"><span class="nav-number">1.</span> <span class="nav-text">XDebug安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#坑1"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">坑1:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#坑2"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">坑2:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#坑3"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">坑3:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置XDebug"><span class="nav-number">2.</span> <span class="nav-text">配置XDebug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检验安装配置是否成功"><span class="nav-number">3.</span> <span class="nav-text">检验安装配置是否成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHPStorm中配置XDebug"><span class="nav-number">4.</span> <span class="nav-text">PHPStorm中配置XDebug</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#配置端口"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">配置端口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置servers"><span class="nav-number">4.0.0.2.</span> <span class="nav-text">配置servers</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置debug"><span class="nav-number">4.0.0.3.</span> <span class="nav-text">配置debug</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -846,6 +622,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
