@@ -1,0 +1,678 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Menlo:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="最近不仅换厂了，连开发方向都换了，从事PHP开发去了。
+个中原因一言难尽，希望在不久将来能成为全栈吧！
+接下来的博客内容可能会以web开发为主了，如果有时间研究iOS也是极好的。
+这篇东西主要想记录一下我在配置PHP断点调试遇到的一些坑（仅仅记录我遇到的）。
+安装XDebug获取相应版本XDebug步骤:
+
+复制phpinfo()打印出来的页面(command+a, command+c);
+浏览器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP开发：Mac 下 PHPStorm + XDebug 断点调试">
+<meta property="og:url" content="http://bt67123.github.io/2016/09/17/php_breakpoint_debug/index.html">
+<meta property="og:site_name" content="小罗的技术博客">
+<meta property="og:description" content="最近不仅换厂了，连开发方向都换了，从事PHP开发去了。
+个中原因一言难尽，希望在不久将来能成为全栈吧！
+接下来的博客内容可能会以web开发为主了，如果有时间研究iOS也是极好的。
+这篇东西主要想记录一下我在配置PHP断点调试遇到的一些坑（仅仅记录我遇到的）。
+安装XDebug获取相应版本XDebug步骤:
+
+复制phpinfo()打印出来的页面(command+a, command+c);
+浏览器">
+<meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-3E683CD6-B144-4D83-8A41-5A41F0B12E68.png">
+<meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-DingTalk20160918180407.png">
+<meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-QQ20160918-0.png">
+<meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-QQ20160918-1.png">
+<meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.21.59.png">
+<meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.27.07.png">
+<meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.30.31.png">
+<meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%887.07.06.png">
+<meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.32.55.png">
+<meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.35.59.png">
+<meta property="og:updated_time" content="2016-09-18T11:08:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP开发：Mac 下 PHPStorm + XDebug 断点调试">
+<meta name="twitter:description" content="最近不仅换厂了，连开发方向都换了，从事PHP开发去了。
+个中原因一言难尽，希望在不久将来能成为全栈吧！
+接下来的博客内容可能会以web开发为主了，如果有时间研究iOS也是极好的。
+这篇东西主要想记录一下我在配置PHP断点调试遇到的一些坑（仅仅记录我遇到的）。
+安装XDebug获取相应版本XDebug步骤:
+
+复制phpinfo()打印出来的页面(command+a, command+c);
+浏览器">
+<meta name="twitter:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-3E683CD6-B144-4D83-8A41-5A41F0B12E68.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://bt67123.github.io/2016/09/17/php_breakpoint_debug/"/>
+
+  <title> PHP开发：Mac 下 PHPStorm + XDebug 断点调试 | 小罗的技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">小罗的技术博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                PHP开发：Mac 下 PHPStorm + XDebug 断点调试
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-17T23:00:48+08:00" content="2016-09-17">
+              2016-09-17
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/17/php_breakpoint_debug/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/17/php_breakpoint_debug/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近不仅换厂了，连开发方向都换了，从事PHP开发去了。</p>
+<p>个中原因一言难尽，希望在不久将来能成为全栈吧！</p>
+<p>接下来的博客内容可能会以web开发为主了，如果有时间研究iOS也是极好的。</p>
+<p>这篇东西主要想记录一下我在配置PHP断点调试遇到的一些坑（仅仅记录我遇到的）。</p>
+<h2 id="安装XDebug"><a href="#安装XDebug" class="headerlink" title="安装XDebug"></a>安装XDebug</h2><p>获取相应版本XDebug步骤:</p>
+<ol>
+<li>复制phpinfo()打印出来的页面(<code>command+a</code>, <code>command+c</code>);</li>
+<li>浏览器打开网址<a href="https://xdebug.org/wizard.php" target="_blank" rel="external">https://xdebug.org/wizard.php</a></li>
+<li>把刚才复制的phpinfo内容粘贴到页面的输入框中(<code>command+v</code>)，然后点击下方<code>Analyse my phpinfo() output</code>按钮;</li>
+</ol>
+<p>接下来会得到以下页面（不同机子，不同版本可能得到的内容不一样，仅记录我获得的）</p>
+<p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-3E683CD6-B144-4D83-8A41-5A41F0B12E68.png" alt=""></p>
+<p>页面上显示了对本机配置的描述<code>SUMMARY</code>，还有针对此配置的安装<code>XDebug</code>的详细步骤<code>INSTRUCTIONS</code>（巨详细，但是有几个坑）。</p>
+<p>按照给出的步骤一步一步往下走，一个一个坑的踩。</p>
+<a id="more"></a>
+<h3 id="坑1"><a href="#坑1" class="headerlink" title="坑1:"></a>坑1:</h3><p>第二步，解压缩的时候，按照上面的指令去解压，不要在图形界面上解压。</p>
+<h3 id="坑2"><a href="#坑2" class="headerlink" title="坑2:"></a>坑2:</h3><p>第四部，运行命令<code>phpize</code>的时候报错如下:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/usr/local/Cellar/php70/7.0.10_1/bin/phpize: line 61: /usr/local/Library/Homebrew/shims/super/sed: No such file or directory</div><div class="line">/usr/local/Cellar/php70/7.0.10_1/bin/phpize: line 62: /usr/local/Library/Homebrew/shims/super/sed: No such file or directory</div><div class="line">/usr/local/Cellar/php70/7.0.10_1/bin/phpize: line 63: /usr/local/Library/Homebrew/shims/super/sed: No such file or directory</div><div class="line">Configuring for:</div><div class="line">PHP Api Version:</div><div class="line">Zend Module Api No:</div><div class="line">Zend Extension Api No:</div><div class="line">/usr/local/Cellar/php70/7.0.10_1/bin/phpize: line 155: /usr/local/Library/Homebrew/shims/super/sed: No such file or directory</div><div class="line">Cannot find autoconf. Please check your autoconf installation and the</div><div class="line">$PHP_AUTOCONF environment variable. Then, rerun this script.</div></pre></td></tr></table></figure>
+<p>报错主要说明了两个问题，一个是在指定路径上<code>sed</code>命令没找到，另一个是<code>Cannot find autoconf</code>。</p>
+<p>填坑:</p>
+<ol>
+<li>发现<code>sed</code>在其他路径上，把找到的<code>sed</code>文件复制到指定路径上，也就是上面的<code>/usr/local/Library/Homebrew/shims/super/sed</code>。</li>
+<li>缺少<code>autoconf</code>，缺少那就安装，使用<code>Homebrew</code>安装，在命令行键入<code>brew install autoconf</code></li>
+</ol>
+<h3 id="坑3"><a href="#坑3" class="headerlink" title="坑3:"></a>坑3:</h3><p>第七步与第八步路径不一样，或者说第七步路径缺少了一部分！！</p>
+<p>填坑：</p>
+<p>把第七步命令上的路径按照第八步的路径补全</p>
+<p><code>cp modules/xdebug.so /usr/local/Cellar/php70/7.0.10_1/lib/php/extensions/no-debug-non-zts-20151012/xdebug.so</code></p>
+<h2 id="配置XDebug"><a href="#配置XDebug" class="headerlink" title="配置XDebug"></a>配置XDebug</h2><p>在<code>php.ini</code>文件末尾添加如下代码:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">zend_extension = /usr/local/Cellar/php70/7.0.10_1/lib/php/extensions/no-debug-non-zts-20151012/xdebug.so</div><div class="line">xdebug.idekey=PhpStorm</div><div class="line">xdebug.remote_enable = On</div><div class="line">xdebug.remote_host=localhost</div><div class="line">xdebug.remote_port=9001</div><div class="line">xdebug.remote_mode=req</div><div class="line">xdebug.remote_handler=dbgp</div></pre></td></tr></table></figure>
+<p>由于端口<code>9000</code>被占用了，我改用了<code>9001</code>。</p>
+<p>什么？找不到<code>php.ini</code>文件?</p>
+<p>好吧，再次打开<code>phpinfo</code></p>
+<p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-DingTalk20160918180407.png" alt=""></p>
+<p>配置完成，重启webserver，php-fpm。</p>
+<h2 id="检验安装配置是否成功"><a href="#检验安装配置是否成功" class="headerlink" title="检验安装配置是否成功"></a>检验安装配置是否成功</h2><p>重新打开<code>phpinfo</code>页面，看到下图这个，说明安装成功</p>
+<p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-QQ20160918-0.png" alt=""></p>
+<p>或者命令行键入<code>php -m</code>，拉到最后看是否有<code>XDebug</code></p>
+<p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-QQ20160918-1.png" alt=""></p>
+<h2 id="PHPStorm中配置XDebug"><a href="#PHPStorm中配置XDebug" class="headerlink" title="PHPStorm中配置XDebug"></a>PHPStorm中配置XDebug</h2><h3 id="配置端口"><a href="#配置端口" class="headerlink" title="配置端口"></a>配置端口</h3><p>里面的<code>debug port</code>必须要与刚才<code>php.ini</code>配置的<code>remote_port</code>保持一致。</p>
+<p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.21.59.png" alt=""></p>
+<h3 id="配置servers"><a href="#配置servers" class="headerlink" title="配置servers"></a>配置servers</h3><p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.27.07.png" alt=""></p>
+<h3 id="配置debug"><a href="#配置debug" class="headerlink" title="配置debug"></a>配置debug</h3><p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.30.31.png" alt=""></p>
+<p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%887.07.06.png" alt=""></p>
+<p>配置好后，点击 <img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.32.55.png" alt=""> 这个按钮，开始debug，别忘了打断点哦！</p>
+<p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.35.59.png" alt=""></p>
+<p>可以断点了，大功告成！</p>
+<p>以上。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/25/Message_Forwarding/" rel="next" title="Objective-C - 利用动态消息转发实现代理转发">
+                <i class="fa fa-chevron-left"></i> Objective-C - 利用动态消息转发实现代理转发
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/09/17/php_breakpoint_debug/"
+     data-title="PHP开发：Mac 下 PHPStorm + XDebug 断点调试"
+     data-content=""
+     data-url="http://bt67123.github.io/2016/09/17/php_breakpoint_debug/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/17/php_breakpoint_debug/"
+           data-title="PHP开发：Mac 下 PHPStorm + XDebug 断点调试" data-url="http://bt67123.github.io/2016/09/17/php_breakpoint_debug/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="LCJ" />
+          <p class="site-author-name" itemprop="name">LCJ</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装XDebug"><span class="nav-number">1.</span> <span class="nav-text">安装XDebug</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#坑1"><span class="nav-number">1.1.</span> <span class="nav-text">坑1:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#坑2"><span class="nav-number">1.2.</span> <span class="nav-text">坑2:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#坑3"><span class="nav-number">1.3.</span> <span class="nav-text">坑3:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置XDebug"><span class="nav-number">2.</span> <span class="nav-text">配置XDebug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检验安装配置是否成功"><span class="nav-number">3.</span> <span class="nav-text">检验安装配置是否成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHPStorm中配置XDebug"><span class="nav-number">4.</span> <span class="nav-text">PHPStorm中配置XDebug</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置端口"><span class="nav-number">4.1.</span> <span class="nav-text">配置端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置servers"><span class="nav-number">4.2.</span> <span class="nav-text">配置servers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置debug"><span class="nav-number">4.3.</span> <span class="nav-text">配置debug</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LCJ</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"bt67123"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
