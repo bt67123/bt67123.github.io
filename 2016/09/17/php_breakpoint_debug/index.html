@@ -99,7 +99,7 @@ XDebug安装获取相应版本XDebug步骤:
 复制phpinfo()打印出来的页面(command+a, command+c);
 浏览器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP开发：Mac下PHPStorm+XDebug断点调试">
+<meta property="og:title" content="PHP开发：Mac 下 PHPStorm + XDebug 断点调试">
 <meta property="og:url" content="http://bt67123.github.io/2016/09/17/php_breakpoint_debug/index.html">
 <meta property="og:site_name" content="小罗的技术博客">
 <meta property="og:description" content="最近不仅换厂了，连开发方向都换了，从事PHP开发去了。
@@ -120,9 +120,9 @@ XDebug安装获取相应版本XDebug步骤:
 <meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.34.36.png">
 <meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.32.55.png">
 <meta property="og:image" content="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.35.59.png">
-<meta property="og:updated_time" content="2016-09-18T10:36:48.000Z">
+<meta property="og:updated_time" content="2016-09-18T10:50:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP开发：Mac下PHPStorm+XDebug断点调试">
+<meta name="twitter:title" content="PHP开发：Mac 下 PHPStorm + XDebug 断点调试">
 <meta name="twitter:description" content="最近不仅换厂了，连开发方向都换了，从事PHP开发去了。
 个中原因一言难尽，希望在不久将来能成为全栈吧！
 接下来的博客内容可能会以web开发为主了，如果有时间研究iOS也是极好的。
@@ -154,7 +154,7 @@ XDebug安装获取相应版本XDebug步骤:
 
   <link rel="canonical" href="http://bt67123.github.io/2016/09/17/php_breakpoint_debug/"/>
 
-  <title> PHP开发：Mac下PHPStorm+XDebug断点调试 | 小罗的技术博客 </title>
+  <title> PHP开发：Mac 下 PHPStorm + XDebug 断点调试 | 小罗的技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -274,7 +274,7 @@ XDebug安装获取相应版本XDebug步骤:
             
             
               
-                PHP开发：Mac下PHPStorm+XDebug断点调试
+                PHP开发：Mac 下 PHPStorm + XDebug 断点调试
               
             
           </h1>
@@ -335,8 +335,8 @@ XDebug安装获取相应版本XDebug步骤:
 <p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-3E683CD6-B144-4D83-8A41-5A41F0B12E68.png" alt=""></p>
 <p>页面上显示了对本机配置的描述<code>SUMMARY</code>，还有针对此配置的安装<code>XDebug</code>的详细步骤<code>INSTRUCTIONS</code>（巨详细，但是有几个坑）。</p>
 <p>按照给出的步骤一步一步往下走，一个一个坑的踩。</p>
-<h5 id="坑1"><a href="#坑1" class="headerlink" title="坑1:"></a>坑1:</h5><p>第二步，解压缩的时候，按照上面的指令去解压，不要在图形界面上解压。</p>
-<h5 id="坑2"><a href="#坑2" class="headerlink" title="坑2:"></a>坑2:</h5><p>第四部，运行命令<code>phpize</code>的时候报错如下:</p>
+<h3 id="坑1"><a href="#坑1" class="headerlink" title="坑1:"></a>坑1:</h3><p>第二步，解压缩的时候，按照上面的指令去解压，不要在图形界面上解压。</p>
+<h3 id="坑2"><a href="#坑2" class="headerlink" title="坑2:"></a>坑2:</h3><p>第四部，运行命令<code>phpize</code>的时候报错如下:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/usr/local/Cellar/php70/7.0.10_1/bin/phpize: line 61: /usr/local/Library/Homebrew/shims/super/sed: No such file or directory</div><div class="line">/usr/local/Cellar/php70/7.0.10_1/bin/phpize: line 62: /usr/local/Library/Homebrew/shims/super/sed: No such file or directory</div><div class="line">/usr/local/Cellar/php70/7.0.10_1/bin/phpize: line 63: /usr/local/Library/Homebrew/shims/super/sed: No such file or directory</div><div class="line">Configuring for:</div><div class="line">PHP Api Version:</div><div class="line">Zend Module Api No:</div><div class="line">Zend Extension Api No:</div><div class="line">/usr/local/Cellar/php70/7.0.10_1/bin/phpize: line 155: /usr/local/Library/Homebrew/shims/super/sed: No such file or directory</div><div class="line">Cannot find autoconf. Please check your autoconf installation and the</div><div class="line">$PHP_AUTOCONF environment variable. Then, rerun this script.</div></pre></td></tr></table></figure>
 <p>报错主要说明了两个问题，一个是在指定路径上<code>sed</code>命令没找到，另一个是<code>Cannot find autoconf</code>。</p>
 <p>填坑:</p>
@@ -344,7 +344,7 @@ XDebug安装获取相应版本XDebug步骤:
 <li>发现<code>sed</code>在其他路径上，把找到的<code>sed</code>文件复制到指定路径上，也就是上面的<code>/usr/local/Library/Homebrew/shims/super/sed</code>。</li>
 <li>缺少<code>autoconf</code>，缺少那就安装，使用<code>Homebrew</code>安装，在命令行键入<code>brew install autoconf</code></li>
 </ol>
-<h5 id="坑3"><a href="#坑3" class="headerlink" title="坑3:"></a>坑3:</h5><p>第七步与第八步路径不一样，或者说第七步路径缺少了一部分！！</p>
+<h3 id="坑3"><a href="#坑3" class="headerlink" title="坑3:"></a>坑3:</h3><p>第七步与第八步路径不一样，或者说第七步路径缺少了一部分！！</p>
 <p>填坑：</p>
 <p>把第七步命令上的路径按照第八步的路径补全</p>
 <p><code>cp modules/xdebug.so /usr/local/Cellar/php70/7.0.10_1/lib/php/extensions/no-debug-non-zts-20151012/xdebug.so</code></p>
@@ -359,10 +359,10 @@ XDebug安装获取相应版本XDebug步骤:
 <p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-QQ20160918-0.png" alt=""></p>
 <p>或者命令行键入<code>php -m</code>，拉到最后看是否有<code>XDebug</code></p>
 <p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-QQ20160918-1.png" alt=""></p>
-<h2 id="PHPStorm中配置XDebug"><a href="#PHPStorm中配置XDebug" class="headerlink" title="PHPStorm中配置XDebug"></a>PHPStorm中配置XDebug</h2><h5 id="配置端口"><a href="#配置端口" class="headerlink" title="配置端口"></a>配置端口</h5><p>里面的<code>debug port</code>必须要与刚才<code>php.ini</code>配置的<code>remote_port</code>保持一致。</p>
+<h2 id="PHPStorm中配置XDebug"><a href="#PHPStorm中配置XDebug" class="headerlink" title="PHPStorm中配置XDebug"></a>PHPStorm中配置XDebug</h2><h3 id="配置端口"><a href="#配置端口" class="headerlink" title="配置端口"></a>配置端口</h3><p>里面的<code>debug port</code>必须要与刚才<code>php.ini</code>配置的<code>remote_port</code>保持一致。</p>
 <p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.21.59.png" alt=""></p>
-<h5 id="配置servers"><a href="#配置servers" class="headerlink" title="配置servers"></a>配置servers</h5><p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.27.07.png" alt=""></p>
-<h5 id="配置debug"><a href="#配置debug" class="headerlink" title="配置debug"></a>配置debug</h5><p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.30.31.png" alt=""></p>
+<h3 id="配置servers"><a href="#配置servers" class="headerlink" title="配置servers"></a>配置servers</h3><p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.27.07.png" alt=""></p>
+<h3 id="配置debug"><a href="#配置debug" class="headerlink" title="配置debug"></a>配置debug</h3><p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.30.31.png" alt=""></p>
 <p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.34.36.png" alt=""></p>
 <p>配置好后，点击<br><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.32.55.png" alt=""><br>这个按钮，开始debug，别忘了打断点哦！</p>
 <p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.35.59.png" alt=""></p>
@@ -415,7 +415,7 @@ XDebug安装获取相应版本XDebug步骤:
     <div class="post-spread">
       
         <div class="ds-share flat" data-thread-key="2016/09/17/php_breakpoint_debug/"
-     data-title="PHP开发：Mac下PHPStorm+XDebug断点调试"
+     data-title="PHP开发：Mac 下 PHPStorm + XDebug 断点调试"
      data-content=""
      data-url="http://bt67123.github.io/2016/09/17/php_breakpoint_debug/">
   <div class="ds-share-inline">
@@ -445,7 +445,7 @@ XDebug安装获取相应版本XDebug步骤:
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/09/17/php_breakpoint_debug/"
-           data-title="PHP开发：Mac下PHPStorm+XDebug断点调试" data-url="http://bt67123.github.io/2016/09/17/php_breakpoint_debug/">
+           data-title="PHP开发：Mac 下 PHPStorm + XDebug 断点调试" data-url="http://bt67123.github.io/2016/09/17/php_breakpoint_debug/">
       </div>
     
   </div>
@@ -522,7 +522,7 @@ XDebug安装获取相应版本XDebug步骤:
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#XDebug安装"><span class="nav-number">1.</span> <span class="nav-text">XDebug安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#坑1"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">坑1:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#坑2"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">坑2:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#坑3"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">坑3:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置XDebug"><span class="nav-number">2.</span> <span class="nav-text">配置XDebug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检验安装配置是否成功"><span class="nav-number">3.</span> <span class="nav-text">检验安装配置是否成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHPStorm中配置XDebug"><span class="nav-number">4.</span> <span class="nav-text">PHPStorm中配置XDebug</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#配置端口"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">配置端口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置servers"><span class="nav-number">4.0.0.2.</span> <span class="nav-text">配置servers</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置debug"><span class="nav-number">4.0.0.3.</span> <span class="nav-text">配置debug</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#XDebug安装"><span class="nav-number">1.</span> <span class="nav-text">XDebug安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#坑1"><span class="nav-number">1.1.</span> <span class="nav-text">坑1:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#坑2"><span class="nav-number">1.2.</span> <span class="nav-text">坑2:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#坑3"><span class="nav-number">1.3.</span> <span class="nav-text">坑3:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置XDebug"><span class="nav-number">2.</span> <span class="nav-text">配置XDebug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检验安装配置是否成功"><span class="nav-number">3.</span> <span class="nav-text">检验安装配置是否成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHPStorm中配置XDebug"><span class="nav-number">4.</span> <span class="nav-text">PHPStorm中配置XDebug</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置端口"><span class="nav-number">4.1.</span> <span class="nav-text">配置端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置servers"><span class="nav-number">4.2.</span> <span class="nav-text">配置servers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置debug"><span class="nav-number">4.3.</span> <span class="nav-text">配置debug</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

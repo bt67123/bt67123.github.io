@@ -242,7 +242,7 @@
               
                 
                 <a class="post-title-link" href="/2016/09/17/php_breakpoint_debug/" itemprop="url">
-                  PHP开发：Mac下PHPStorm+XDebug断点调试
+                  PHP开发：Mac 下 PHPStorm + XDebug 断点调试
                 </a>
               
             
@@ -306,8 +306,8 @@
 <p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-3E683CD6-B144-4D83-8A41-5A41F0B12E68.png" alt=""></p>
 <p>页面上显示了对本机配置的描述<code>SUMMARY</code>，还有针对此配置的安装<code>XDebug</code>的详细步骤<code>INSTRUCTIONS</code>（巨详细，但是有几个坑）。</p>
 <p>按照给出的步骤一步一步往下走，一个一个坑的踩。</p>
-<h5 id="坑1"><a href="#坑1" class="headerlink" title="坑1:"></a>坑1:</h5><p>第二步，解压缩的时候，按照上面的指令去解压，不要在图形界面上解压。</p>
-<h5 id="坑2"><a href="#坑2" class="headerlink" title="坑2:"></a>坑2:</h5><p>第四部，运行命令<code>phpize</code>的时候报错如下:</p>
+<h3 id="坑1"><a href="#坑1" class="headerlink" title="坑1:"></a>坑1:</h3><p>第二步，解压缩的时候，按照上面的指令去解压，不要在图形界面上解压。</p>
+<h3 id="坑2"><a href="#坑2" class="headerlink" title="坑2:"></a>坑2:</h3><p>第四部，运行命令<code>phpize</code>的时候报错如下:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/usr/local/Cellar/php70/7.0.10_1/bin/phpize: line 61: /usr/local/Library/Homebrew/shims/super/sed: No such file or directory</div><div class="line">/usr/local/Cellar/php70/7.0.10_1/bin/phpize: line 62: /usr/local/Library/Homebrew/shims/super/sed: No such file or directory</div><div class="line">/usr/local/Cellar/php70/7.0.10_1/bin/phpize: line 63: /usr/local/Library/Homebrew/shims/super/sed: No such file or directory</div><div class="line">Configuring for:</div><div class="line">PHP Api Version:</div><div class="line">Zend Module Api No:</div><div class="line">Zend Extension Api No:</div><div class="line">/usr/local/Cellar/php70/7.0.10_1/bin/phpize: line 155: /usr/local/Library/Homebrew/shims/super/sed: No such file or directory</div><div class="line">Cannot find autoconf. Please check your autoconf installation and the</div><div class="line">$PHP_AUTOCONF environment variable. Then, rerun this script.</div></pre></td></tr></table></figure>
 <p>报错主要说明了两个问题，一个是在指定路径上<code>sed</code>命令没找到，另一个是<code>Cannot find autoconf</code>。</p>
 <p>填坑:</p>
@@ -315,7 +315,7 @@
 <li>发现<code>sed</code>在其他路径上，把找到的<code>sed</code>文件复制到指定路径上，也就是上面的<code>/usr/local/Library/Homebrew/shims/super/sed</code>。</li>
 <li>缺少<code>autoconf</code>，缺少那就安装，使用<code>Homebrew</code>安装，在命令行键入<code>brew install autoconf</code></li>
 </ol>
-<h5 id="坑3"><a href="#坑3" class="headerlink" title="坑3:"></a>坑3:</h5><p>第七步与第八步路径不一样，或者说第七步路径缺少了一部分！！</p>
+<h3 id="坑3"><a href="#坑3" class="headerlink" title="坑3:"></a>坑3:</h3><p>第七步与第八步路径不一样，或者说第七步路径缺少了一部分！！</p>
 <p>填坑：</p>
 <p>把第七步命令上的路径按照第八步的路径补全</p>
 <p><code>cp modules/xdebug.so /usr/local/Cellar/php70/7.0.10_1/lib/php/extensions/no-debug-non-zts-20151012/xdebug.so</code></p>
@@ -330,10 +330,10 @@
 <p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-QQ20160918-0.png" alt=""></p>
 <p>或者命令行键入<code>php -m</code>，拉到最后看是否有<code>XDebug</code></p>
 <p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-QQ20160918-1.png" alt=""></p>
-<h2 id="PHPStorm中配置XDebug"><a href="#PHPStorm中配置XDebug" class="headerlink" title="PHPStorm中配置XDebug"></a>PHPStorm中配置XDebug</h2><h5 id="配置端口"><a href="#配置端口" class="headerlink" title="配置端口"></a>配置端口</h5><p>里面的<code>debug port</code>必须要与刚才<code>php.ini</code>配置的<code>remote_port</code>保持一致。</p>
+<h2 id="PHPStorm中配置XDebug"><a href="#PHPStorm中配置XDebug" class="headerlink" title="PHPStorm中配置XDebug"></a>PHPStorm中配置XDebug</h2><h3 id="配置端口"><a href="#配置端口" class="headerlink" title="配置端口"></a>配置端口</h3><p>里面的<code>debug port</code>必须要与刚才<code>php.ini</code>配置的<code>remote_port</code>保持一致。</p>
 <p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.21.59.png" alt=""></p>
-<h5 id="配置servers"><a href="#配置servers" class="headerlink" title="配置servers"></a>配置servers</h5><p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.27.07.png" alt=""></p>
-<h5 id="配置debug"><a href="#配置debug" class="headerlink" title="配置debug"></a>配置debug</h5><p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.30.31.png" alt=""></p>
+<h3 id="配置servers"><a href="#配置servers" class="headerlink" title="配置servers"></a>配置servers</h3><p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.27.07.png" alt=""></p>
+<h3 id="配置debug"><a href="#配置debug" class="headerlink" title="配置debug"></a>配置debug</h3><p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.30.31.png" alt=""></p>
 <p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.34.36.png" alt=""></p>
 <p>配置好后，点击<br><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.32.55.png" alt=""><br>这个按钮，开始debug，别忘了打断点哦！</p>
 <p><img src="http://oaayo42x2.bkt.clouddn.com/2016-09-18-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-09-18%20%E4%B8%8B%E5%8D%886.35.59.png" alt=""></p>
