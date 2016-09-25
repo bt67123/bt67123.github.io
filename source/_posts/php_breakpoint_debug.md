@@ -5,8 +5,6 @@ date: 2016/09/17 23:00:48
 
 最近不仅换厂了，连开发方向都换了，从事PHP开发去了。
 
-个中原因一言难尽，希望在不久将来能成为全栈吧！
-
 接下来的博客内容可能会以web开发为主了，如果有时间研究iOS也是极好的。
 
 这篇东西主要想记录一下我在配置PHP断点调试遇到的一些坑（仅仅记录我遇到的）。
@@ -19,6 +17,8 @@ date: 2016/09/17 23:00:48
 2. 浏览器打开网址[https://xdebug.org/wizard.php](https://xdebug.org/wizard.php)
 3. 把刚才复制的phpinfo内容粘贴到页面的输入框中(`command+v`)，然后点击下方`Analyse my phpinfo() output`按钮;
 
+<!--more-->
+
 接下来会得到以下页面（不同机子，不同版本可能得到的内容不一样，仅记录我获得的）
 
 ![](http://oaayo42x2.bkt.clouddn.com/2016-09-18-3E683CD6-B144-4D83-8A41-5A41F0B12E68.png)
@@ -26,8 +26,6 @@ date: 2016/09/17 23:00:48
 页面上显示了对本机配置的描述`SUMMARY`，还有针对此配置的安装`XDebug`的详细步骤`INSTRUCTIONS`（巨详细，但是有几个坑）。
 
 按照给出的步骤一步一步往下走，一个一个坑的踩。
-
-<!--more-->
 
 ### 坑1:
 
@@ -54,7 +52,7 @@ $PHP_AUTOCONF environment variable. Then, rerun this script.
 
 填坑:
 
-1. 发现`sed`在其他路径上，把找到的`sed`文件复制到指定路径上，也就是上面的`/usr/local/Library/Homebrew/shims/super/sed`。
+1. 发现`sed`在`/usr/local/Homebrew/Library/Homebrew/shims/super/sed`路径上，把找到的`sed`文件复制到指定路径上，也就是上面的`/usr/local/Library/Homebrew/shims/super/sed`。
 2. 缺少`autoconf`，缺少那就安装，使用`Homebrew`安装，在命令行键入`brew install autoconf`
 
 ### 坑3:
