@@ -123,4 +123,8 @@ xdebug.remote_handler=dbgp
 
 可以断点了，大功告成！
 
+## 参考资料
+[PHPStorm+XDebug进行调试](http://wlb.wlb.blog.163.com/blog/static/46741320153252810689/)
+
+
 以上。

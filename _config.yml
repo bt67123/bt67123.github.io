@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 小罗的技术博客
+title: luocj’s blog
 subtitle:
 description:
 author: LCJ
@@ -12,7 +12,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://bt67123.github.io
+url: http://cnluocj.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -63,7 +63,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next
+theme: even
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -75,9 +75,9 @@ deploy:
   # repo: https://github.com/bt67123/bt67123.github.io.git
 
 # duoshuo
-duoshuo_shortname: bt67123
+# duoshuo_shortname: bt67123
 # 多说分享服务
-duoshuo_share: true
+# duoshuo_share: true
 
 # # JiaThis 分享服务
 # jiathis: true

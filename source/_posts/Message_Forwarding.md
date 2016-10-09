@@ -3,11 +3,11 @@ title: Objective-C - 利用动态消息转发实现代理转发
 date: 2016/7/25 11:17:30
 ---
 
-# Runtime ?
+## Runtime ?
 
 Runtime 是 Objective-C 区别于 C 语言这样的静态语言的一个非常重要的特性。对于 C 语言，函数的调用会在编译期就已经决定好，在编译完成后直接顺序执行。但是 OC 是一门动态语言，函数调用变成了消息发送，在编译期不能知道要调用哪个函数。所以 Runtime 无非就是去解决如何在运行时期找到调用方法这样的问题。
 
-# 动态消息转发
+## 动态消息转发
 
 由于OC有Runtime这一重要特性，使得动态消息转发(Message Forwarding)成为了可能。
 
@@ -143,7 +143,7 @@ Runtime 是 Objective-C 区别于 C 语言这样的静态语言的一个非常�
 
 调用`scrollViewDidScroll:` -> 判断能否响应`respondsToSelector:` -> 获取方法签名`methodSignatureForSelector:` -> 改变调用目标`forwardInvocation:`
 
-# 小坑
+## 小坑
 这里有一个不小心就会犯的错误 - **循环引用**
 
 如果想用`NSArray`等容器去得到代理集合，并使用动态消息解析分发到每个代理的话，那么`NSArray`，`NSSet`等不能添加弱引用对象的容器就很容易造成引用循环，可以使用`NSPointerArray`，`NSHashTable`等可以添加弱引用对象的容器。
