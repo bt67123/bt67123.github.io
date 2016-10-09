@@ -1,7 +1,9 @@
-.DS_Store
-Thumbs.db
-db.json
-*.log
-node_modules/
-public/
+#.DS_Store  取消忽略
+#*.log  取消忽略
+#node_modules/  取消忽略
 .deploy*/
+!.deploy_git/README.md  不忽略 README.md 文件
+/public/
+db.json
+*.bak  #忽略 notepad++ 的备份文件
+Thumbs.db
